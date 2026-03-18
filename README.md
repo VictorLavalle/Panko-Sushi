@@ -4,24 +4,25 @@ Landing page y menú digital para Panko Sushi.
 
 ## Tech Stack
 
-*Por definir*
+- [Next.js](https://nextjs.org/) (App Router)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Getting Started
 
 ```bash
-# Instalar dependencias
 npm install
-
-# Iniciar servidor de desarrollo
 npm run dev
 ```
+
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
 ## Estructura del Proyecto
 
 ```
-├── src/          # Código fuente
-├── public/       # Assets estáticos
-└── README.md
+src/
+├── app/        # App Router (pages, layouts)
+public/         # Assets estáticos (imágenes, íconos)
 ```
 
 ## License

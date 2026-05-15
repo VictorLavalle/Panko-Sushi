@@ -20,7 +20,12 @@ const { restaurant, categories } = menuData;
 
 function NoResults({ query }: Readonly<{ query: string }>) {
   const { t } = useI18n();
-  return <p className="text-center text-[var(--color-text-muted)] py-16">{t("search.noResults", { query })}</p>;
+  return (
+    <div className="text-center py-12">
+      <p className="text-[var(--color-text-secondary)] text-sm">{t("search.noResults", { query })}</p>
+      <p className="text-[var(--color-text-muted)] text-xs mt-2">🍣</p>
+    </div>
+  );
 }
 
 function MenuContent() {
@@ -89,20 +94,29 @@ function MenuContent() {
         isActive={isSearchActive}
       />
 
-      <PromotionsSection />
+      {!isSearchActive && (
+        <>
+          <PromotionsSection />
 
-      <CategoryNavigation
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategorySelect={handleCategorySelect}
-      />
+          <CategoryNavigation
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategorySelect={handleCategorySelect}
+          />
+        </>
+      )}
 
       <div className="px-4 space-y-10 mt-6 pb-8">
-        {isSearchActive && results.length > 0 &&
-          results.map(({ category, items }) => (
-            <CategorySection key={category.id} category={{ ...category, items }} />
-          ))
-        }
+        {isSearchActive && results.length > 0 && (
+          <>
+            <p className="text-xs text-[var(--color-text-muted)]">
+              {resultCount} {resultCount === 1 ? "resultado" : "resultados"}
+            </p>
+            {results.map(({ category, items }) => (
+              <CategorySection key={category.id} category={{ ...category, items }} />
+            ))}
+          </>
+        )}
         {isSearchActive && results.length === 0 &&
           <NoResults query={debouncedQuery} />
         }

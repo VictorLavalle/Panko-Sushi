@@ -28,7 +28,7 @@ export function CategoryNavigation({ categories, activeCategory, onCategorySelec
   return (
     <nav
       aria-label={t("nav.categories")}
-      className="sticky top-0 z-20 glass border-b border-[var(--color-border)]"
+      className="sticky top-0 z-20 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]/50"
     >
       <div
         ref={containerRef}
@@ -42,8 +42,8 @@ export function CategoryNavigation({ categories, activeCategory, onCategorySelec
             onClick={(e) => { e.preventDefault(); onCategorySelect(cat.id); }}
             className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center touch-manipulation select-none ${
               activeCategory === cat.id
-                ? "bg-[var(--color-accent)] text-white shadow-md shadow-[var(--color-accent)]/20"
-                : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)]"
+                ? "bg-[var(--color-accent)]/15 text-[var(--color-accent)] border border-[var(--color-accent)]/25"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] border border-transparent hover:border-[var(--color-border)]"
             }`}
             aria-current={activeCategory === cat.id ? "page" : undefined}
           >

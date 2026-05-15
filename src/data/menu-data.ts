@@ -5,10 +5,12 @@ export const menuData: MenuData = {
     name: "Panko Sushi",
     tagline: "Restaurante de sushi y algunas cositas más!",
     phone: "9811695143",
-    address: "Calle 14a #18, Colonia Prado entre 36 y Montecristo, Campeche",
+    address: "Calle 14A #18 entre 36 y Montecristo, Col. Prado, San Francisco de Campeche, 24030",
     addressUrl: "https://maps.app.goo.gl/2WpL5BYDBBb7LTzQ6",
     instagram: "@pankosushi24",
     instagramUrl: "https://instagram.com/pankosushi24",
+    facebook: "Panko Sushi",
+    facebookUrl: "https://www.facebook.com/share/1HQRH6KHUj/",
     hours: "Lunes a Sábado, 6:30 pm - 11:00 pm",
     logoSrc: "/logo.webp",
   },
@@ -20,9 +22,9 @@ export const menuData: MenuData = {
       items: [
         { id: "kakiages", name: "Kakiages", description: "Fritura de verduras en tempura", descriptionEn: "Tempura vegetable fritters", price: 95 },
         { id: "kushiages", name: "Kushiages", description: "Dedos de queso (4 pzas.)", descriptionEn: "Cheese sticks (4 pcs.)", price: 95 },
-        { id: "gyozas-pork", name: "Gyozas Pork", description: "Empanadillas Rellenas de Carne de Puerco (6 pzas.)", descriptionEn: "Pork-filled dumplings (6 pcs.)", price: 95 },
-        { id: "dragon-balls", name: "Dragon Balls", description: "Bolas de Arroz Empanizadas con Relleno de Queso Crema y Proteína a elegir: Pollo, Arrachera o Camarón (4 pzas.)", descriptionEn: "Breaded rice balls stuffed with cream cheese and your choice of protein: Chicken, Steak or Shrimp (4 pcs.)", price: 95 },
-        { id: "papas-deluxe", name: "Papas Deluxe", description: "Papas a la francesa bañadas en salsa de queso con tocino y cebollín", descriptionEn: "French fries topped with cheese sauce, bacon and chives", price: 100 },
+        { id: "gyozas-pork", name: "Gyozas Pork", description: "Empanadillas Rellenas de Carne de Puerco (6 pzas.)", descriptionEn: "Pork-filled dumplings (6 pcs.)", price: 95, tag: "chef" },
+        { id: "dragon-balls", name: "Dragon Balls", description: "Bolas de Arroz Empanizadas con Relleno de Queso Crema y Proteína a elegir: Pollo, Arrachera o Camarón (4 pzas.)", descriptionEn: "Breaded rice balls stuffed with cream cheese and your choice of protein: Chicken, Steak or Shrimp (4 pcs.)", price: 95, tag: "popular" },
+        { id: "papas-deluxe", name: "Papas Deluxe", description: "Papas a la francesa bañadas en salsa de queso con tocino y cebollín", descriptionEn: "French fries topped with cheese sauce, bacon and chives", price: 100, tag: "new" },
         { id: "papas-francesa", name: "Papas a la Francesa", description: "Porción de papas fritas", descriptionEn: "French fries", price: 75 },
         { id: "camarones-tempura", name: "Camarones en Tempura", description: "Camarones crujientes en masa tempura", descriptionEn: "Crispy tempura-battered shrimp", price: 145 },
       ],
@@ -39,7 +41,7 @@ export const menuData: MenuData = {
         { id: "rollo-arrachera", name: "Arrachera", description: "Arrachera a la plancha", descriptionEn: "Grilled steak", price: 120 },
         { id: "rollo-camaron", name: "Camarón Cocido", description: "Camarón cocido", descriptionEn: "Cooked shrimp", price: 125 },
         { id: "rollo-mixto-dos", name: "Mixto de Dos Carnes", description: "A elegir entre Pollo, Arrachera y Camarón", descriptionEn: "Choose two: Chicken, Steak or Shrimp", price: 130 },
-        { id: "rollo-mixto-tres", name: "Mixto de Tres Carnes", description: "Contiene Pollo, Arrachera y Camarón", descriptionEn: "Includes Chicken, Steak and Shrimp", price: 140 },
+        { id: "rollo-mixto-tres", name: "Mixto de Tres Carnes", description: "Contiene Pollo, Arrachera y Camarón", descriptionEn: "Includes Chicken, Steak and Shrimp", price: 140, tag: "popular" },
       ],
     },
     {
@@ -82,7 +84,7 @@ export const menuData: MenuData = {
         { id: "gohan-arrachera", name: "Arrachera", description: "Con arrachera", descriptionEn: "With grilled steak", price: 115 },
         { id: "gohan-camaron", name: "Camarón Empanizado", description: "Con camarón crujiente", descriptionEn: "With crispy shrimp", price: 125 },
         { id: "gohan-mixto-dos", name: "Mixto Dos Carnes", description: "Dos proteínas a elegir", descriptionEn: "Choose two proteins", price: 135 },
-        { id: "gohan-mixto-tres", name: "Mixto Tres Carnes", description: "Pollo, Arrachera y Camarón", descriptionEn: "Chicken, Steak and Shrimp", price: 145 },
+        { id: "gohan-mixto-tres", name: "Mixto Tres Carnes", description: "Pollo, Arrachera y Camarón", descriptionEn: "Chicken, Steak and Shrimp", price: 145, tag: "house" },
       ],
     },
     {
@@ -93,7 +95,7 @@ export const menuData: MenuData = {
       descriptionEn: "Base: Fried rice with butter, soy sauce and vegetables. Toppings: Protein, Cream Cheese, Avocado, Chives and Black Sesame.",
       items: [
         { id: "yakimeshi-pollo", name: "Pollo", description: "Con pollo desmenuzado", descriptionEn: "With shredded chicken", price: 115 },
-        { id: "yakimeshi-arrachera", name: "Arrachera", description: "Con arrachera", descriptionEn: "With grilled steak", price: 125 },
+        { id: "yakimeshi-arrachera", name: "Arrachera", description: "Con arrachera", descriptionEn: "With grilled steak", price: 125, tag: "chef" },
         { id: "yakimeshi-camaron", name: "Camarón Empanizado", description: "Con camarón crujiente", descriptionEn: "With crispy shrimp", price: 135 },
         { id: "yakimeshi-mixto-dos", name: "Mixto Dos Carnes", description: "Dos proteínas a elegir", descriptionEn: "Choose two proteins", price: 145 },
         { id: "yakimeshi-mixto-tres", name: "Mixto Tres Carnes", description: "Pollo, Arrachera y Camarón", descriptionEn: "Chicken, Steak and Shrimp", price: 155 },
@@ -118,7 +120,7 @@ export const menuData: MenuData = {
       name: "No Sushi",
       displayOrder: 8,
       items: [
-        { id: "boneless-chips", name: "Boneless and Chips", description: "300 gr. de Boneless acompañado de 200 gr. de papas a la francesa. Sabores: BBQ, Buffalo, Chipotle, Cajún, Hot honey mustard, Breakfast, Mango habanero, Smirnoff de tamarindo, Lemon pepper", descriptionEn: "300g boneless wings with 200g french fries. Flavors: BBQ, Buffalo, Chipotle, Cajun, Hot honey mustard, Breakfast, Mango habanero, Tamarind Smirnoff, Lemon pepper", price: 155 },
+        { id: "boneless-chips", name: "Boneless and Chips", description: "300 gr. de Boneless acompañado de 200 gr. de papas a la francesa. Sabores: BBQ, Buffalo, Chipotle, Cajún, Hot honey mustard, Breakfast, Mango habanero, Smirnoff de tamarindo, Lemon pepper", descriptionEn: "300g boneless wings with 200g french fries. Flavors: BBQ, Buffalo, Chipotle, Cajun, Hot honey mustard, Breakfast, Mango habanero, Tamarind Smirnoff, Lemon pepper", price: 155, tag: "shareable" },
       ],
     },
     {

@@ -12,6 +12,7 @@ export interface MenuItem {
   descriptionEn?: string;
   price?: number;
   proteinOptions?: ProteinOption[];
+  tag?: "popular" | "new" | "spicy" | "chef" | "shareable" | "house";
 }
 
 /** A menu category grouping items */
@@ -39,6 +40,8 @@ export interface RestaurantData {
   addressUrl: string;
   instagram: string;
   instagramUrl: string;
+  facebook: string;
+  facebookUrl: string;
   hours: string;
   logoSrc: string;
 }

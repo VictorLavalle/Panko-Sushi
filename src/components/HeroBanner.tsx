@@ -38,7 +38,7 @@ export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, add
       </p>
 
       <div className="mt-5 flex flex-wrap justify-center gap-3 text-sm">
-        <span className="text-[var(--color-text-muted)] text-xs">
+        <span className="text-[var(--color-text-muted)] text-sm">
           {t("hero.hours")}
         </span>
         <span className="text-[var(--color-border)]">·</span>
@@ -46,7 +46,7 @@ export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, add
           href={buildWhatsAppUrl(phone, t("whatsapp.message"))}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[#25D366] text-xs font-medium transition-all hover:opacity-80"
+          className="inline-flex items-center gap-1.5 text-[#25D366] text-sm font-medium transition-all hover:opacity-80"
           aria-label={t("hero.callToAction", { name: restaurantName })}
         >
           <WhatsAppIcon className="w-3.5 h-3.5" />
@@ -54,7 +54,7 @@ export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, add
         </a>
       </div>
 
-      <a href={addressUrl} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-[11px] text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors">
+      <a href={addressUrl} target="_blank" rel="noopener noreferrer" className="inline-block mt-4 text-xs text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors">
         {address}
       </a>
     </header>

@@ -39,7 +39,8 @@ function MenuContent() {
     const handleScroll = () => {
       const contactEl = document.getElementById("contact");
       const firstCat = document.getElementById(categories[0].id);
-      if (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.5) {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+      if (atBottom || (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.75)) {
         setBottomSection("contact");
       } else if (firstCat && firstCat.getBoundingClientRect().top < 100) {
         setBottomSection("menu");

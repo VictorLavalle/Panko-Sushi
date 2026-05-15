@@ -47,7 +47,7 @@ export function CategoryNavigation({ categories, activeCategory, onCategorySelec
             }`}
             aria-current={activeCategory === cat.id ? "page" : undefined}
           >
-            {t(`category.${cat.id}`) !== `category.${cat.id}` ? t(`category.${cat.id}`) : cat.name}
+            {t(`category.${cat.id}`) === `category.${cat.id}` ? cat.name : t(`category.${cat.id}`)}
           </a>
         ))}
       </div>

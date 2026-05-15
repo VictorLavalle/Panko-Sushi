@@ -13,14 +13,11 @@ export function PromotionCard({ promo }: Readonly<{ promo: Promotion }>) {
   const badge = locale === "en" ? promo.badgeEn : promo.badge;
 
   return (
-    <article className="relative min-w-[270px] w-[80vw] max-w-[320px] flex-shrink-0 snap-center rounded-2xl p-5 flex flex-col justify-between gap-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:shadow-black/5 bg-[var(--color-bg-card)] border border-[var(--color-border)]">
-      {/* Top row: day + badge */}
-      <div className="flex items-center justify-between">
+    <article className="relative min-w-[270px] w-[80vw] max-w-[320px] flex-shrink-0 snap-center rounded-2xl p-5 flex flex-col justify-between gap-4 transition-all duration-200 hover:border-[var(--color-text-muted)] bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+      {/* Day */}
+      <div className="text-right">
         <span className="text-[10px] font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">
           {day}
-        </span>
-        <span className={`text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-md ${promo.badgeColor}`}>
-          {badge}
         </span>
       </div>
 

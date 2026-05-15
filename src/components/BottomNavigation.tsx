@@ -21,17 +21,17 @@ export function BottomNavigation({ activeSection, onNavigate }: BottomNavigation
   return (
     <nav
       aria-label={t("nav.main")}
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-30 w-full lg:w-3/4 bg-[var(--color-surface)] border-t border-gray-200 rounded-t-xl shadow-lg"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full lg:w-3/4 max-w-2xl glass border-t border-[var(--color-border)] rounded-t-2xl"
     >
       <div className="flex justify-around items-center h-16">
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className={`flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-0.5 text-xs transition-colors ${
+            className={`flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-0.5 text-xs transition-all duration-200 ${
               activeSection === item.id
-                ? "text-[var(--color-accent-olive)] font-semibold"
-                : "text-gray-500"
+                ? "text-[var(--color-accent)] font-semibold scale-105"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
             }`}
             aria-label={item.label}
             aria-current={activeSection === item.id ? "page" : undefined}

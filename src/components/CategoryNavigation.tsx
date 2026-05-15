@@ -21,18 +21,14 @@ export function CategoryNavigation({ categories, activeCategory, onCategorySelec
     const pill = pillRefs.current.get(activeCategory);
     if (!container || !pill) return;
 
-    const offset = calculatePillScrollOffset(
-      pill.offsetLeft,
-      pill.offsetWidth,
-      container.offsetWidth
-    );
+    const offset = calculatePillScrollOffset(pill.offsetLeft, pill.offsetWidth, container.offsetWidth);
     container.scrollTo({ left: offset, behavior: "smooth" });
   }, [activeCategory]);
 
   return (
     <nav
       aria-label={t("nav.categories")}
-      className="sticky top-0 z-20 bg-[var(--color-background)] border-b border-gray-100"
+      className="sticky top-0 z-20 glass border-b border-[var(--color-border)]"
     >
       <div
         ref={containerRef}
@@ -43,16 +39,13 @@ export function CategoryNavigation({ categories, activeCategory, onCategorySelec
             key={cat.id}
             ref={(el) => { if (el) pillRefs.current.set(cat.id, el); }}
             href={`#${cat.id}`}
-            onClick={(e) => {
-              e.preventDefault();
-              onCategorySelect(cat.id);
-            }}
-            className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-colors min-h-[44px] flex items-center touch-manipulation select-none ${
+            onClick={(e) => { e.preventDefault(); onCategorySelect(cat.id); }}
+            className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 min-h-[44px] flex items-center touch-manipulation select-none ${
               activeCategory === cat.id
-                ? "bg-[var(--color-accent-pink)] text-[var(--color-text-primary)]"
-                : "bg-[var(--color-surface)] text-gray-600 hover:bg-gray-100"
+                ? "bg-[var(--color-accent)] text-white shadow-md shadow-[var(--color-accent)]/20"
+                : "bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)] hover:text-[var(--color-text)] hover:border-[var(--color-text-muted)]"
             }`}
-            aria-current={activeCategory === cat.id ? "true" : undefined}
+            aria-current={activeCategory === cat.id ? "page" : undefined}
           >
             {t(`category.${cat.id}`) !== `category.${cat.id}` ? t(`category.${cat.id}`) : cat.name}
           </a>

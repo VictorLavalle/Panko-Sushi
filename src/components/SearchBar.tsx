@@ -13,7 +13,7 @@ export function SearchBar({ value, onChange, resultCount, isActive }: SearchBarP
   const { t } = useI18n();
 
   return (
-    <div className="px-4 pb-3">
+    <div className="px-4 pb-4">
       <div className="relative">
         <input
           type="text"
@@ -21,10 +21,10 @@ export function SearchBar({ value, onChange, resultCount, isActive }: SearchBarP
           onChange={(e) => onChange(e.target.value)}
           placeholder={t("search.placeholder")}
           aria-label={t("search.label")}
-          className="w-full h-11 pl-10 pr-10 rounded-full bg-[var(--color-surface)] border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-sage)]"
+          className="w-full h-12 pl-11 pr-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]/50 focus:border-[var(--color-accent)]/50 transition-all"
         />
         <svg
-          className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+          className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-[var(--color-text-muted)]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ export function SearchBar({ value, onChange, resultCount, isActive }: SearchBarP
         {value && (
           <button
             onClick={() => onChange("")}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 text-xs"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-[var(--color-border)] text-[var(--color-text-secondary)] text-xs hover:bg-[var(--color-text-muted)] transition-colors"
             aria-label={t("search.clear")}
           >
             ✕
@@ -43,7 +43,7 @@ export function SearchBar({ value, onChange, resultCount, isActive }: SearchBarP
         )}
       </div>
       {isActive && (
-        <p className="text-xs text-gray-500 mt-1 ml-3" aria-live="polite">
+        <p className="text-xs text-[var(--color-text-muted)] mt-2 ml-1" aria-live="polite">
           {t("search.results", { count: resultCount, plural: resultCount !== 1 ? "s" : "" })}
         </p>
       )}

@@ -5,7 +5,7 @@ export const menuData: MenuData = {
     name: "Panko Sushi",
     tagline: "Restaurante de sushi y algunas cositas más!",
     phone: "9811695143",
-    address: "Calle 14a #18, Colonia Prado entre 36 y Montecristo",
+    address: "Calle 14a #18, Colonia Prado entre 36 y Montecristo, Campeche",
     addressUrl: "https://maps.app.goo.gl/2WpL5BYDBBb7LTzQ6",
     instagram: "@pankosushi24",
     instagramUrl: "https://instagram.com/pankosushi24",

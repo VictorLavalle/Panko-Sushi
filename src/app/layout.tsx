@@ -12,7 +12,22 @@ const catamaran = Catamaran({
 export const metadata: Metadata = {
   title: "Panko Sushi | Menú Digital",
   description:
-    "Digital menu for Panko Sushi — artisan sushi in Mérida, Yucatán. Browse our rolls, starters, desserts and more.",
+    "Digital menu for Panko Sushi — artisan sushi in Campeche, Campeche, México. Browse our rolls, starters, desserts and more.",
+  keywords: ["sushi", "Panko Sushi", "Campeche", "menú digital", "restaurante", "comida japonesa", "rolls", "yakimeshi"],
+  openGraph: {
+    title: "Panko Sushi | Menú Digital",
+    description: "Restaurante de sushi y algunas cositas más! Menú digital de Panko Sushi en Campeche, México.",
+    type: "website",
+    locale: "es_MX",
+    images: [{ url: "/logo.webp", width: 512, height: 512, alt: "Panko Sushi logo" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Panko Sushi | Menú Digital",
+    description: "Restaurante de sushi y algunas cositas más! Menú digital de Panko Sushi en Campeche, México.",
+    images: ["/logo.webp"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

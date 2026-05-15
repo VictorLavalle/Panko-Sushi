@@ -1,82 +1,149 @@
-/* Catamaran font for headings (Google Fonts) */
-@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap");
 
 @import "tailwindcss";
 
-/* Brand design tokens */
 :root {
-  --color-background: #F7F4F1;
-  --color-text-primary: #000002;
-  --color-accent-pink: #ECAFB6;
-  --color-accent-sage: #B8C59A;
-  --color-accent-olive: #546942;
-  --color-accent-warm: #DB9C66;
-  --color-surface: #FFFFFF;
+  --color-bg: #F7F4F1;
+  --color-bg-elevated: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-surface: #f0ede9;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #8a8a8a;
+  --color-accent: #e63946;
+  --color-accent-warm: #f4845f;
+  --color-accent-gold: #946b3c;
+  --color-wasabi: #546942;
+  --color-border: #e5e0db;
+  --color-glass: rgba(247, 244, 241, 0.8);
 }
 
-/* Register tokens with Tailwind CSS 4 theme */
 @theme inline {
-  --color-background: var(--color-background);
-  --color-text-primary: var(--color-text-primary);
-  --color-accent-pink: var(--color-accent-pink);
-  --color-accent-sage: var(--color-accent-sage);
-  --color-accent-olive: var(--color-accent-olive);
-  --color-accent-warm: var(--color-accent-warm);
+  --color-bg: var(--color-bg);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-card: var(--color-bg-card);
   --color-surface: var(--color-surface);
-  --font-heading: "Catamaran", sans-serif;
-  --font-body: "Avenir Next", system-ui, sans-serif;
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-warm: var(--color-accent-warm);
+  --color-accent-gold: var(--color-accent-gold);
+  --color-wasabi: var(--color-wasabi);
+  --color-border: var(--color-border);
+  --color-glass: var(--color-glass);
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Outfit", system-ui, sans-serif;
 }
 
-/* Base styles */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-card: var(--color-bg-card);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-warm: var(--color-accent-warm);
+  --color-accent-gold: var(--color-accent-gold);
+  --color-wasabi: var(--color-wasabi);
+  --color-border: var(--color-border);
+  --color-glass: var(--color-glass);
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+html.dark {
+  --color-bg: #0f0f0f;
+  --color-bg-elevated: #1a1a1a;
+  --color-bg-card: #1f1f1f;
+  --color-surface: #262626;
+  --color-text: #f5f5f5;
+  --color-text-secondary: #a3a3a3;
+  --color-text-muted: #737373;
+  --color-accent: #e63946;
+  --color-accent-warm: #f4845f;
+  --color-accent-gold: #d4a574;
+  --color-wasabi: #7c9a5e;
+  --color-border: #2e2e2e;
+  --color-glass: rgba(15, 15, 15, 0.8);
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: "Avenir Next", system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Outfit", system-ui, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Catamaran", sans-serif;
-  font-size: 20px;
+h1, h2, h3 {
+  font-family: "Outfit", system-ui, sans-serif;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: 800;
-}
+h1 { font-size: 2.5rem; line-height: 1.1; }
+h2 { font-size: 1.75rem; line-height: 1.2; }
+h3 { font-size: 1.25rem; line-height: 1.3; }
 
-h2 {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-/* Utility: hide scrollbar */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.glass {
+  background: rgba(247, 244, 241, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
-/* Safe area padding for bottom nav */
-.safe-area-pb {
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+.dark .glass {
+  background: rgba(15, 15, 15, 0.75);
+}
+
+.badge {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Focus indicators for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip navigation link */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-nav:focus {
+  top: 0;
 }

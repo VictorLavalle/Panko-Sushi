@@ -1,13 +1,5 @@
 import type { Metadata } from "next";
-import { Catamaran } from "next/font/google";
 import "./globals.css";
-
-const catamaran = Catamaran({
-  variable: "--font-catamaran",
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Panko Sushi | Menú Digital",
@@ -16,7 +8,7 @@ export const metadata: Metadata = {
   keywords: ["sushi", "Panko Sushi", "Campeche", "menú digital", "restaurante", "comida japonesa", "rolls", "yakimeshi"],
   openGraph: {
     title: "Panko Sushi | Menú Digital",
-    description: "Restaurante de sushi y algunas cositas más! Menú digital de Panko Sushi en Campeche, México.",
+    description: "🍣 Rollos, Yakimeshi, Gohan y más. Haz tu pedido por WhatsApp. Abierto Lun-Sáb 6:30-11pm en Campeche.",
     type: "website",
     locale: "es_MX",
     images: [{ url: "/logo.webp", width: 512, height: 512, alt: "Panko Sushi logo" }],
@@ -24,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Panko Sushi | Menú Digital",
-    description: "Restaurante de sushi y algunas cositas más! Menú digital de Panko Sushi en Campeche, México.",
+    description: "🍣 Rollos, Yakimeshi, Gohan y más. Haz tu pedido por WhatsApp. Abierto Lun-Sáb 6:30-11pm en Campeche.",
     images: ["/logo.webp"],
   },
   robots: { index: true, follow: true },
@@ -36,19 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-      className={`${catamaran.variable} h-full antialiased`}
-      style={{ backgroundColor: "#F7F4F1" }}
-    >
-      <body
-        className="min-h-full flex flex-col overflow-x-hidden"
-        style={{
-          backgroundColor: "#F7F4F1",
-          fontFamily:
-            '"Avenir Next", system-ui, -apple-system, sans-serif',
-        }}
-      >
+    <html lang="es" className="h-full antialiased">
+      <body className="min-h-full overflow-x-hidden">
         {children}
       </body>
     </html>

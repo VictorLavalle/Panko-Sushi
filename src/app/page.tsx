@@ -10,6 +10,7 @@ import { CategoryNavigation } from "@/components/CategoryNavigation";
 import { CategorySection } from "@/components/CategorySection";
 import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { BottomNavigation } from "@/components/BottomNavigation";
+import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { I18nProvider, useI18n } from "@/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -17,7 +18,7 @@ const { restaurant, categories } = menuData;
 
 function NoResults({ query }: { query: string }) {
   const { t } = useI18n();
-  return <p className="text-center text-gray-500 py-12">{t("search.noResults", { query })}</p>;
+  return <p className="text-center text-[var(--color-text-muted)] py-16">{t("search.noResults", { query })}</p>;
 }
 
 function MenuContent() {
@@ -38,8 +39,10 @@ function MenuContent() {
   };
 
   return (
-    <main className="min-h-screen pb-20 w-full lg:w-3/4 mx-auto overflow-x-hidden">
+    <main id="main-content" className="min-h-screen pb-24 w-full lg:w-3/4 max-w-4xl mx-auto">
+      <a href="#main-content" className="skip-nav">Skip to menu</a>
       <LanguageSwitcher />
+
       <HeroBanner
         logoSrc={restaurant.logoSrc}
         restaurantName={restaurant.name}
@@ -47,6 +50,7 @@ function MenuContent() {
         hours={restaurant.hours}
         phone={restaurant.phone}
         address={restaurant.address}
+        addressUrl={restaurant.addressUrl}
       />
 
       <SearchBar
@@ -62,7 +66,7 @@ function MenuContent() {
         onCategorySelect={handleCategorySelect}
       />
 
-      <div className="px-4 space-y-8 mt-4 pb-8">
+      <div className="px-4 space-y-10 mt-6 pb-8">
         {isSearchActive ? (
           results.length > 0 ? (
             results.map(({ category, items }) => (
@@ -101,6 +105,8 @@ function MenuContent() {
           }
         }}
       />
+
+      <FloatingWhatsApp phone={restaurant.phone} />
     </main>
   );
 }

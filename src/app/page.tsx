@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { menuData } from "@/data/menu-data";
 import { searchMenu, countSearchResults } from "@/lib/search";
 import { useDebounce } from "@/hooks/useDebounce";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { HeroBanner } from "@/components/HeroBanner";
 import { SearchBar } from "@/components/SearchBar";
 import { CategoryNavigation } from "@/components/CategoryNavigation";
@@ -23,15 +24,14 @@ function NoResults({ query }: { query: string }) {
 
 function MenuContent() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const debouncedQuery = useDebounce(searchQuery, 300);
+  const activeCategory = useScrollSpy(categories.map(c => c.id), 80);
 
   const results = useMemo(() => searchMenu(categories, debouncedQuery), [debouncedQuery]);
   const resultCount = useMemo(() => countSearchResults(results), [results]);
   const isSearchActive = debouncedQuery.trim().length > 0;
 
   const handleCategorySelect = (id: string) => {
-    setActiveCategory(id);
     const el = document.getElementById(id);
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - 60;

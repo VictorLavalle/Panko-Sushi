@@ -27,5 +27,7 @@
   "whatsapp.message": "Hola, me gustaría hacer un pedido 🍣",
   "whatsapp.order": "Ordenar",
   "hero.tagline": "Restaurante de sushi y algunas cositas más!",
-  "hero.hours": "Lunes a Sábado, 6:30 pm - 11:00 pm"
+  "hero.hours": "Lunes a Sábado, 6:30 pm - 11:00 pm",
+  "promotions.title": "Promociones",
+  "promotions.section": "Promociones semanales"
 }

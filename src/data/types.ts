@@ -9,6 +9,7 @@ export interface MenuItem {
   id: string;
   name: string;
   description?: string;
+  descriptionEn?: string;
   price?: number;
   proteinOptions?: ProteinOption[];
 }
@@ -19,6 +20,7 @@ export interface Category {
   name: string;
   displayOrder: number;
   description?: string;
+  descriptionEn?: string;
   items: MenuItem[];
 }
 

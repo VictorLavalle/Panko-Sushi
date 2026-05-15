@@ -13,23 +13,24 @@ const translations: Record<Locale, Translations> = { es, en };
 interface I18nContextType {
   locale: Locale;
   setLocale: (l: Locale) => void;
-  theme: Theme;
-  setTheme: (t: Theme) => void;
   t: (key: string, params?: Record<string, string | number>) => string;
 }
 
-const I18nContext = createContext<I18nContextType | null>(null);
+interface ThemeContextType {
+  theme: Theme;
+  setTheme: (t: Theme) => void;
+}
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
+const I18nContext = createContext<I18nContextType | null>(null);
+const ThemeContext = createContext<ThemeContextType | null>(null);
+
+function ThemeProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [theme, setThemeState] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const savedLocale = localStorage.getItem("locale") as Locale | null;
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedLocale) setLocaleState(savedLocale);
-    if (savedTheme) setThemeState(savedTheme);
+    const saved = localStorage.getItem("theme") as Theme | null;
+    if (saved) setThemeState(saved);
     setMounted(true);
   }, []);
 
@@ -38,14 +39,29 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme, mounted]);
 
-  const setLocale = (l: Locale) => {
-    setLocaleState(l);
-    localStorage.setItem("locale", l);
-  };
-
   const setTheme = (t: Theme) => {
     setThemeState(t);
     localStorage.setItem("theme", t);
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+function I18nInnerProvider({ children }: Readonly<{ children: ReactNode }>) {
+  const [locale, setLocaleState] = useState<Locale>("es");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("locale") as Locale | null;
+    if (saved) setLocaleState(saved);
+  }, []);
+
+  const setLocale = (l: Locale) => {
+    setLocaleState(l);
+    localStorage.setItem("locale", l);
   };
 
   const t = (key: string, params?: Record<string, string | number>) => {
@@ -59,14 +75,30 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <I18nContext.Provider value={{ locale, setLocale, theme, setTheme, t }}>
+    <I18nContext.Provider value={{ locale, setLocale, t }}>
       {children}
     </I18nContext.Provider>
+  );
+}
+
+export function I18nProvider({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <ThemeProvider>
+      <I18nInnerProvider>
+        {children}
+      </I18nInnerProvider>
+    </ThemeProvider>
   );
 }
 
 export function useI18n() {
   const ctx = useContext(I18nContext);
   if (!ctx) throw new Error("useI18n must be used within I18nProvider");
+  return ctx;
+}
+
+export function useTheme() {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be used within I18nProvider");
   return ctx;
 }

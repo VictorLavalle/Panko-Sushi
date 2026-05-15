@@ -35,13 +35,13 @@ export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, add
 
       {/* Tagline */}
       <p className="mt-3 text-[var(--color-text-secondary)] text-base font-light tracking-wide">
-        {tagline}
+        {t("hero.tagline")}
       </p>
 
       {/* Info pills */}
       <div className="mt-5 flex flex-wrap justify-center gap-3 text-sm">
         <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[var(--color-surface)] text-[var(--color-text-secondary)] border border-[var(--color-border)]">
-          🕐 {hours}
+          🕐 {t("hero.hours")}
         </span>
         <a
           href={`https://wa.me/52${phone}?text=${encodeURIComponent(t("whatsapp.message"))}`}

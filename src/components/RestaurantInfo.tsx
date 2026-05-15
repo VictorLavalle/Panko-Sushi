@@ -29,7 +29,10 @@ export function RestaurantInfo({ phone, address, addressUrl, instagram, instagra
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-lg" aria-hidden="true">📍</span>
+          <svg className="w-5 h-5 text-[var(--color-text-muted)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
           <a href={addressUrl} target="_blank" rel="noopener noreferrer" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
             {address}
           </a>
@@ -51,7 +54,9 @@ export function RestaurantInfo({ phone, address, addressUrl, instagram, instagra
           </a>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-lg" aria-hidden="true">🕐</span>
+          <svg className="w-5 h-5 text-[var(--color-text-muted)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
           <span className="text-[var(--color-text-secondary)]">{t("hero.hours")}</span>
         </div>
       </div>

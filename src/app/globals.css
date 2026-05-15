@@ -1,26 +1,82 @@
+/* Catamaran font for headings (Google Fonts) */
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@700;800&display=swap");
+
 @import "tailwindcss";
 
+/* Brand design tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-background: #F7F4F1;
+  --color-text-primary: #000002;
+  --color-accent-pink: #ECAFB6;
+  --color-accent-sage: #B8C59A;
+  --color-accent-olive: #546942;
+  --color-accent-warm: #DB9C66;
+  --color-surface: #FFFFFF;
 }
 
+/* Register tokens with Tailwind CSS 4 theme */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-background);
+  --color-text-primary: var(--color-text-primary);
+  --color-accent-pink: var(--color-accent-pink);
+  --color-accent-sage: var(--color-accent-sage);
+  --color-accent-olive: var(--color-accent-olive);
+  --color-accent-warm: var(--color-accent-warm);
+  --color-surface: var(--color-surface);
+  --font-heading: "Catamaran", sans-serif;
+  --font-body: "Avenir Next", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: "Avenir Next", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Utility: hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe area padding for bottom nav */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }

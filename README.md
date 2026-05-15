@@ -1,6 +1,6 @@
 # Panko Sushi 🍣
 
-Digital menu for Panko Sushi — a sushi restaurant in Mérida, Yucatán.
+Digital menu for Panko Sushi — a sushi restaurant in Campeche, México.
 
 ## Tech Stack
 

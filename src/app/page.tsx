@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { menuData } from "@/data/menu-data";
 import { searchMenu, countSearchResults } from "@/lib/search";
 import { useDebounce } from "@/hooks/useDebounce";
@@ -12,6 +12,7 @@ import { CategorySection } from "@/components/CategorySection";
 import { RestaurantInfo } from "@/components/RestaurantInfo";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
+import { PromotionsSection } from "@/components/PromotionsSection";
 import { I18nProvider, useI18n } from "@/i18n";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -26,6 +27,24 @@ function MenuContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedQuery = useDebounce(searchQuery, 300);
   const activeCategory = useScrollSpy(categories.map(c => c.id), 80);
+
+  const [bottomSection, setBottomSection] = useState<"home" | "menu" | "contact">("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const contactEl = document.getElementById("contact");
+      const firstCat = document.getElementById(categories[0].id);
+      if (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.5) {
+        setBottomSection("contact");
+      } else if (firstCat && firstCat.getBoundingClientRect().top < 100) {
+        setBottomSection("menu");
+      } else {
+        setBottomSection("home");
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const results = useMemo(() => searchMenu(categories, debouncedQuery), [debouncedQuery]);
   const resultCount = useMemo(() => countSearchResults(results), [results]);
@@ -60,6 +79,8 @@ function MenuContent() {
         isActive={isSearchActive}
       />
 
+      <PromotionsSection />
+
       <CategoryNavigation
         categories={categories}
         activeCategory={activeCategory}
@@ -88,11 +109,13 @@ function MenuContent() {
         addressUrl={restaurant.addressUrl}
         instagram={restaurant.instagram}
         instagramUrl={restaurant.instagramUrl}
+        facebook={restaurant.facebook}
+        facebookUrl={restaurant.facebookUrl}
         hours={restaurant.hours}
       />
 
       <BottomNavigation
-        activeSection="menu"
+        activeSection={bottomSection}
         onNavigate={(section) => {
           if (section === "home") window.scrollTo({ top: 0, behavior: "smooth" });
           else if (section === "menu") handleCategorySelect(categories[0].id);

@@ -28,7 +28,7 @@ export function BottomNavigation({ activeSection, onNavigate }: Readonly<BottomN
           <button
             key={item.id}
             onClick={() => onNavigate(item.id)}
-            className={`flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-0.5 text-xs transition-all duration-200 ${
+            className={`group flex flex-col items-center justify-center min-w-[44px] min-h-[44px] gap-0.5 text-xs transition-all duration-200 ${
               activeSection === item.id
                 ? "text-[var(--color-accent)] font-semibold scale-105"
                 : "text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)]"
@@ -36,7 +36,7 @@ export function BottomNavigation({ activeSection, onNavigate }: Readonly<BottomN
             aria-label={item.label}
             aria-current={activeSection === item.id ? "page" : undefined}
           >
-            <span className="text-lg" aria-hidden="true">{item.icon}</span>
+            <span className={`text-lg transition-transform duration-200 ${activeSection === item.id ? "scale-110" : "group-hover:scale-110"}`} aria-hidden="true">{item.icon}</span>
             <span>{item.label}</span>
           </button>
         ))}

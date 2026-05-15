@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pankosushi.netlify.app"),
   title: "Panko Sushi | Menú Digital",
   description:
     "Digital menu for Panko Sushi — artisan sushi in Campeche, Campeche, México. Browse our rolls, starters, desserts and more.",

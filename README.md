@@ -1,16 +1,16 @@
 # Panko Sushi 🍣
 
-Menú digital para Panko Sushi — restaurante de sushi en Mérida, Yucatán.
+Digital menu for Panko Sushi — a sushi restaurant in Mérida, Yucatán.
 
 ## Tech Stack
 
 - **Next.js 16** (App Router, Turbopack)
 - **TypeScript**
 - **Tailwind CSS 4**
-- **Motion** (animaciones)
+- **Motion** (animations)
 - **pnpm**
 
-## Desarrollo
+## Development
 
 ```bash
 pnpm install
@@ -30,7 +30,7 @@ pnpm test:watch    # watch mode
 pnpm build
 ```
 
-## Estructura
+## Structure
 
 ```
 src/
@@ -44,8 +44,8 @@ src/
 
 ## Deployment
 
-Desplegado en Netlify. El archivo `netlify.toml` contiene la configuración.
+Deployed on Netlify. See `netlify.toml` for configuration.
 
 ## i18n
 
-Soporta español e inglés. Los textos de UI están en `src/i18n/es.json` y `src/i18n/en.json`.
+Supports Spanish and English. UI texts live in `src/i18n/es.json` and `src/i18n/en.json`.

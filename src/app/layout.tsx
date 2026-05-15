@@ -12,7 +12,7 @@ const catamaran = Catamaran({
 export const metadata: Metadata = {
   title: "Panko Sushi | Menú Digital",
   description:
-    "Menú digital de Panko Sushi — sushi artesanal en Mérida, Yucatán. Explora nuestros rollos, entradas, postres y más.",
+    "Digital menu for Panko Sushi — artisan sushi in Mérida, Yucatán. Browse our rolls, starters, desserts and more.",
 };
 
 export default function RootLayout({

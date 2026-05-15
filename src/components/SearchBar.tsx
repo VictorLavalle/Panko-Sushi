@@ -44,7 +44,7 @@ export function SearchBar({ value, onChange, resultCount, isActive }: Readonly<S
       </div>
       {isActive && (
         <p className="text-[11px] text-[var(--color-text-muted)] mt-1.5 ml-1" aria-live="polite">
-          {t("search.results", { count: resultCount, plural: resultCount !== 1 ? "s" : "" })}
+          {t("search.results", { count: resultCount, plural: resultCount === 1 ? "" : "s" })}
         </p>
       )}
     </div>

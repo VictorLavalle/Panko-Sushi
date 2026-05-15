@@ -5,13 +5,13 @@ import { PromotionCard } from "./PromotionCard";
 import { useI18n } from "@/i18n";
 
 export function PromotionsSection() {
-  const { locale } = useI18n();
+  const { t } = useI18n();
 
   return (
-    <section className="py-6" aria-label={locale === "en" ? "Weekly promotions" : "Promociones semanales"}>
+    <section className="py-6" aria-label={t("promotions.section")}>
       <div className="px-4 mb-4 flex items-center gap-3">
         <h2 className="text-xl font-bold text-[var(--color-text)]">
-          {locale === "en" ? "Weekly Deals" : "Promociones"}
+          {t("promotions.title")}
         </h2>
         <div className="flex-1 h-px bg-[var(--color-border)]" />
       </div>

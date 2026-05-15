@@ -2,6 +2,7 @@
 
 import { MenuItem } from "@/data/types";
 import { formatPrice } from "@/lib/format";
+import { localize } from "@/lib/localize";
 import { useI18n } from "@/i18n";
 
 const tagConfig: Record<string, { label: string; labelEn: string; color: string }> = {
@@ -15,7 +16,7 @@ const tagConfig: Record<string, { label: string; labelEn: string; color: string 
 
 export function ItemCard({ item }: Readonly<{ item: MenuItem }>) {
   const { locale } = useI18n();
-  const desc = locale === "en" ? (item.descriptionEn ?? item.description) : item.description;
+  const desc = localize(item, "description", locale);
   const tag = item.tag ? tagConfig[item.tag] : null;
 
   return (
@@ -27,7 +28,7 @@ export function ItemCard({ item }: Readonly<{ item: MenuItem }>) {
           </h4>
           {tag && (
             <span className={`text-[10px] font-semibold uppercase tracking-wide px-1.5 py-0.5 rounded ${tag.color}`}>
-              {locale === "en" ? tag.labelEn : tag.label}
+              {localize(tag, "label", locale)}
             </span>
           )}
         </div>

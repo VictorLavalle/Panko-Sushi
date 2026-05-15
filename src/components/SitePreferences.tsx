@@ -1,12 +1,13 @@
 "use client";
 
-import { useI18n } from "@/i18n";
+import { useI18n, useTheme } from "@/i18n";
 
-export function LanguageSwitcher() {
-  const { locale, setLocale, theme, setTheme } = useI18n();
+export function SitePreferences() {
+  const { locale, setLocale } = useI18n();
+  const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex justify-between items-center px-4 pt-4" role="toolbar" aria-label="Site preferences">
+    <nav className="flex justify-between items-center px-4 pt-4" aria-label="Site preferences">
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         className="w-8 h-8 flex items-center justify-center rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
@@ -14,7 +15,7 @@ export function LanguageSwitcher() {
       >
         {theme === "dark" ? "☀️" : "🌙"}
       </button>
-      <div className="flex gap-1" role="group" aria-label="Language selection">
+      <fieldset className="flex gap-1 border-0 p-0 m-0" aria-label="Language selection">
         <button
           onClick={() => setLocale("es")}
           aria-label="Español"
@@ -35,7 +36,7 @@ export function LanguageSwitcher() {
         >
           EN
         </button>
-      </div>
-    </div>
+      </fieldset>
+    </nav>
   );
 }

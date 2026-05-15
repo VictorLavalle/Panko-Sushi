@@ -14,13 +14,18 @@ import { BottomNavigation } from "@/components/BottomNavigation";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { PromotionsSection } from "@/components/PromotionsSection";
 import { I18nProvider, useI18n } from "@/i18n";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { SitePreferences } from "@/components/SitePreferences";
 
 const { restaurant, categories } = menuData;
 
-function NoResults({ query }: { query: string }) {
+function NoResults({ query }: Readonly<{ query: string }>) {
   const { t } = useI18n();
-  return <p className="text-center text-[var(--color-text-muted)] py-16">{t("search.noResults", { query })}</p>;
+  return (
+    <div className="text-center py-12">
+      <p className="text-[var(--color-text-secondary)] text-sm">{t("search.noResults", { query })}</p>
+      <p className="text-[var(--color-text-muted)] text-xs mt-2">🍣</p>
+    </div>
+  );
 }
 
 function MenuContent() {
@@ -34,7 +39,8 @@ function MenuContent() {
     const handleScroll = () => {
       const contactEl = document.getElementById("contact");
       const firstCat = document.getElementById(categories[0].id);
-      if (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.5) {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+      if (atBottom || (contactEl && contactEl.getBoundingClientRect().top < window.innerHeight * 0.75)) {
         setBottomSection("contact");
       } else if (firstCat && firstCat.getBoundingClientRect().top < 100) {
         setBottomSection("menu");
@@ -57,10 +63,20 @@ function MenuContent() {
     window.scrollTo({ top, behavior: "smooth" });
   };
 
+  const handleNavigate = (section: "home" | "menu" | "contact") => {
+    if (section === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (section === "menu") {
+      handleCategorySelect(categories[0].id);
+    } else {
+      handleCategorySelect("contact");
+    }
+  };
+
   return (
     <main id="main-content" className="min-h-screen pb-24 w-full lg:w-3/4 max-w-4xl mx-auto">
       <a href="#main-content" className="skip-nav">Skip to menu</a>
-      <LanguageSwitcher />
+      <SitePreferences />
 
       <HeroBanner
         logoSrc={restaurant.logoSrc}
@@ -79,28 +95,37 @@ function MenuContent() {
         isActive={isSearchActive}
       />
 
-      <PromotionsSection />
+      {!isSearchActive && (
+        <>
+          <PromotionsSection />
 
-      <CategoryNavigation
-        categories={categories}
-        activeCategory={activeCategory}
-        onCategorySelect={handleCategorySelect}
-      />
+          <CategoryNavigation
+            categories={categories}
+            activeCategory={activeCategory}
+            onCategorySelect={handleCategorySelect}
+          />
+        </>
+      )}
 
       <div className="px-4 space-y-10 mt-6 pb-8">
-        {isSearchActive ? (
-          results.length > 0 ? (
-            results.map(({ category, items }) => (
+        {isSearchActive && results.length > 0 && (
+          <>
+            <p className="text-xs text-[var(--color-text-muted)]">
+              {resultCount} {resultCount === 1 ? "resultado" : "resultados"}
+            </p>
+            {results.map(({ category, items }) => (
               <CategorySection key={category.id} category={{ ...category, items }} />
-            ))
-          ) : (
-            <NoResults query={debouncedQuery} />
-          )
-        ) : (
+            ))}
+          </>
+        )}
+        {isSearchActive && results.length === 0 &&
+          <NoResults query={debouncedQuery} />
+        }
+        {!isSearchActive &&
           categories.map((category) => (
             <CategorySection key={category.id} category={category} />
           ))
-        )}
+        }
       </div>
 
       <RestaurantInfo
@@ -116,17 +141,7 @@ function MenuContent() {
 
       <BottomNavigation
         activeSection={bottomSection}
-        onNavigate={(section) => {
-          if (section === "home") window.scrollTo({ top: 0, behavior: "smooth" });
-          else if (section === "menu") handleCategorySelect(categories[0].id);
-          else {
-            const el = document.getElementById("contact");
-            if (el) {
-              const top = el.getBoundingClientRect().top + window.scrollY - 60;
-              window.scrollTo({ top, behavior: "smooth" });
-            }
-          }
-        }}
+        onNavigate={handleNavigate}
       />
 
       <FloatingWhatsApp phone={restaurant.phone} />

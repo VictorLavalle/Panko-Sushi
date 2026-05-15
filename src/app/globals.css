@@ -36,24 +36,6 @@
   --font-body: "Outfit", system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-bg: var(--color-bg);
-  --color-bg-elevated: var(--color-bg-elevated);
-  --color-bg-card: var(--color-bg-card);
-  --color-surface: var(--color-surface);
-  --color-text: var(--color-text);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted: var(--color-text-muted);
-  --color-accent: var(--color-accent);
-  --color-accent-warm: var(--color-accent-warm);
-  --color-accent-gold: var(--color-accent-gold);
-  --color-wasabi: var(--color-wasabi);
-  --color-border: var(--color-border);
-  --color-glass: var(--color-glass);
-  --font-heading: "Playfair Display", serif;
-  --font-body: "Outfit", system-ui, sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
 }

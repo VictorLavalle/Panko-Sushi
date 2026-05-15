@@ -2,6 +2,7 @@
 
 import { Category } from "@/data/types";
 import { ItemCard } from "./ItemCard";
+import { localize } from "@/lib/localize";
 import { useI18n } from "@/i18n";
 
 interface CategorySectionProps {
@@ -10,8 +11,9 @@ interface CategorySectionProps {
 
 export function CategorySection({ category }: Readonly<CategorySectionProps>) {
   const { locale, t } = useI18n();
-  const desc = locale === "en" ? (category.descriptionEn ?? category.description) : category.description;
-  const name = t(`category.${category.id}`) !== `category.${category.id}` ? t(`category.${category.id}`) : category.name;
+  const desc = localize(category, "description", locale);
+  const translationKey = t(`category.${category.id}`);
+  const name = translationKey === `category.${category.id}` ? category.name : translationKey;
 
   return (
     <section id={category.id} className="scroll-mt-24">

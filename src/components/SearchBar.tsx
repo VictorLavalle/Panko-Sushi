@@ -13,7 +13,7 @@ export function SearchBar({ value, onChange, resultCount, isActive }: Readonly<S
   const { t } = useI18n();
 
   return (
-    <div className="px-4 pb-3">
+    <div className="px-4 pb-3 pt-2">
       <div className="relative">
         <input
           type="text"

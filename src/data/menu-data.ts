@@ -33,7 +33,7 @@ export const menuData: MenuData = {
       id: "panko",
       name: "Rollo Panko",
       displayOrder: 2,
-      description: "Por dentro: Alga, Aguacate, Zanahoria, Queso Crema + proteína. Por fuera: Empanizado con panko.",
+      description: "P/D: Alga, Aguacate, Zanahoria, Queso Crema + proteína. P/F: Empanizado con panko.",
       descriptionEn: "Inside: Seaweed, Avocado, Carrot, Cream Cheese + protein. Outside: Panko-breaded.",
       items: [
         { id: "panko-veggie", name: "Veggie", description: "Solo verduras", descriptionEn: "Vegetables only", price: 90 },
@@ -48,7 +48,7 @@ export const menuData: MenuData = {
       id: "karui",
       name: "Rollo Karui",
       displayOrder: 3,
-      description: "Por dentro: Alga, Aguacate, Zanahoria, Queso Crema + proteína. Por fuera: Ajonjolí Negro.",
+      description: "P/D: Alga, Aguacate, Zanahoria, Queso Crema + proteína. P/F: Ajonjolí Negro.",
       descriptionEn: "Inside: Seaweed, Avocado, Carrot, Cream Cheese + protein. Outside: Black Sesame.",
       items: [
         { id: "karui-veggie", name: "Veggie", description: "Solo verduras", descriptionEn: "Vegetables only", price: 85 },

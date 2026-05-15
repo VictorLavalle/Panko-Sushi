@@ -141,7 +141,7 @@ function MenuContent() {
       />
 
       <footer className="text-center py-6 text-[11px] text-[var(--color-text-muted)]">
-        {locale === "en" ? "Made" : "Hecho"} with ♥ & ☕ by <a href="https://victorlavalle.me" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text-secondary)] transition-colors underline decoration-dotted">Víctor Lavalle</a>
+        {locale === "en" ? "Made with" : "Hecho con"} ♥ & ☕ {locale === "en" ? "by" : "por"} <a href="https://victorlavalle.me" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text-secondary)] transition-colors underline decoration-dotted">Víctor Lavalle</a>
       </footer>
 
       <BottomNavigation

@@ -19,7 +19,7 @@ import { SitePreferences } from "@/components/SitePreferences";
 const { restaurant, categories } = menuData;
 
 function NoResults({ query }: Readonly<{ query: string }>) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   return (
     <div className="text-center py-12">
       <p className="text-[var(--color-text-secondary)] text-sm">{t("search.noResults", { query })}</p>
@@ -29,6 +29,7 @@ function NoResults({ query }: Readonly<{ query: string }>) {
 }
 
 function MenuContent() {
+  const { locale } = useI18n();
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedQuery = useDebounce(searchQuery, 300);
   const activeCategory = useScrollSpy(categories.map(c => c.id), 80);
@@ -138,6 +139,10 @@ function MenuContent() {
         facebookUrl={restaurant.facebookUrl}
         hours={restaurant.hours}
       />
+
+      <footer className="text-center py-6 text-[11px] text-[var(--color-text-muted)]">
+        {locale === "en" ? "Made" : "Hecho"} with ♥ & ☕ by <a href="https://victorlavalle.me" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text-secondary)] transition-colors underline decoration-dotted">Víctor Lavalle</a>
+      </footer>
 
       <BottomNavigation
         activeSection={bottomSection}

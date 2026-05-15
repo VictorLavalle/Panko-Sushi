@@ -10,7 +10,7 @@
   --color-text: #1a1a1a;
   --color-text-secondary: #4a4a4a;
   --color-text-muted: #8a8a8a;
-  --color-accent: #e63946;
+  --color-accent: #e9835a;
   --color-accent-warm: #f4845f;
   --color-accent-gold: #946b3c;
   --color-wasabi: #546942;
@@ -59,19 +59,19 @@ html {
 }
 
 html.dark {
-  --color-bg: #0f0f0f;
-  --color-bg-elevated: #1a1a1a;
-  --color-bg-card: #1f1f1f;
-  --color-surface: #262626;
-  --color-text: #f5f5f5;
-  --color-text-secondary: #a3a3a3;
-  --color-text-muted: #737373;
-  --color-accent: #e63946;
+  --color-bg: #1e1b18;
+  --color-bg-elevated: #252220;
+  --color-bg-card: #2a2623;
+  --color-surface: #322d29;
+  --color-text: #f0e9e1;
+  --color-text-secondary: #c4b8aa;
+  --color-text-muted: #8a7e72;
+  --color-accent: #e9835a;
   --color-accent-warm: #f4845f;
-  --color-accent-gold: #d4a574;
-  --color-wasabi: #7c9a5e;
-  --color-border: #2e2e2e;
-  --color-glass: rgba(15, 15, 15, 0.8);
+  --color-accent-gold: #e9a55a;
+  --color-wasabi: #8ba66e;
+  --color-border: #3a342e;
+  --color-glass: rgba(30, 27, 24, 0.85);
 }
 
 @media (prefers-reduced-motion: reduce) {

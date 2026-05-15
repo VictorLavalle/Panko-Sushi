@@ -30,27 +30,13 @@ export const menuData: MenuData = {
       ],
     },
     {
-      id: "rollos",
-      name: "Rollos",
-      displayOrder: 2,
-      description: "P/D: Alga, Aguacate, Zanahoria, Queso Crema, más la proteína que se elija.",
-      descriptionEn: "Includes: Seaweed, Avocado, Carrot, Cream Cheese, plus your choice of protein.",
-      items: [
-        { id: "rollo-veggie", name: "Veggie", description: "Solo verduras", descriptionEn: "Vegetables only", price: 90 },
-        { id: "rollo-pollo", name: "Pollo", description: "Pollo desmenuzado", descriptionEn: "Shredded chicken", price: 115 },
-        { id: "rollo-arrachera", name: "Arrachera", description: "Arrachera a la plancha", descriptionEn: "Grilled steak", price: 120 },
-        { id: "rollo-camaron", name: "Camarón Cocido", description: "Camarón cocido", descriptionEn: "Cooked shrimp", price: 125 },
-        { id: "rollo-mixto-dos", name: "Mixto de Dos Carnes", description: "A elegir entre Pollo, Arrachera y Camarón", descriptionEn: "Choose two: Chicken, Steak or Shrimp", price: 130 },
-        { id: "rollo-mixto-tres", name: "Mixto de Tres Carnes", description: "Contiene Pollo, Arrachera y Camarón", descriptionEn: "Includes Chicken, Steak and Shrimp", price: 140, tag: "popular" },
-      ],
-    },
-    {
       id: "panko",
-      name: "Panko",
-      displayOrder: 3,
-      description: "P/F: Empanizado con panko.",
-      descriptionEn: "Panko-breaded and fried.",
+      name: "Rollo Panko",
+      displayOrder: 2,
+      description: "Por dentro: Alga, Aguacate, Zanahoria, Queso Crema + proteína. Por fuera: Empanizado con panko.",
+      descriptionEn: "Inside: Seaweed, Avocado, Carrot, Cream Cheese + protein. Outside: Panko-breaded.",
       items: [
+        { id: "panko-veggie", name: "Veggie", description: "Solo verduras", descriptionEn: "Vegetables only", price: 90 },
         { id: "panko-pollo", name: "Pollo", description: "Pollo empanizado", descriptionEn: "Breaded chicken", price: 115 },
         { id: "panko-arrachera", name: "Arrachera", description: "Arrachera empanizada", descriptionEn: "Breaded steak", price: 120 },
         { id: "panko-camaron", name: "Camarón Empanizado", description: "Camarón crujiente", descriptionEn: "Crispy breaded shrimp", price: 125 },
@@ -60,10 +46,10 @@ export const menuData: MenuData = {
     },
     {
       id: "karui",
-      name: "Karui",
-      displayOrder: 4,
-      description: "P/F: Ajonjolí Negro.",
-      descriptionEn: "Topped with black sesame.",
+      name: "Rollo Karui",
+      displayOrder: 3,
+      description: "Por dentro: Alga, Aguacate, Zanahoria, Queso Crema + proteína. Por fuera: Ajonjolí Negro.",
+      descriptionEn: "Inside: Seaweed, Avocado, Carrot, Cream Cheese + protein. Outside: Black Sesame.",
       items: [
         { id: "karui-veggie", name: "Veggie", description: "Solo verduras", descriptionEn: "Vegetables only", price: 85 },
         { id: "karui-pollo", name: "Pollo", description: "Pollo con ajonjolí", descriptionEn: "Chicken with sesame", price: 110 },
@@ -76,7 +62,7 @@ export const menuData: MenuData = {
     {
       id: "gohan",
       name: "Gohan",
-      displayOrder: 5,
+      displayOrder: 4,
       description: "Base: Arroz al Vapor. Cobertura: Proteína, Queso Crema, Aguacate, Cebollín, Tocino, Ajonjolí Negro y Spicy.",
       descriptionEn: "Base: Steamed rice. Toppings: Protein, Cream Cheese, Avocado, Chives, Bacon, Black Sesame and Spicy sauce.",
       items: [
@@ -90,7 +76,7 @@ export const menuData: MenuData = {
     {
       id: "yakimeshi",
       name: "Yakimeshi",
-      displayOrder: 6,
+      displayOrder: 5,
       description: "Base: Arroz Frito con Mantequilla, Salsa de Soya y Verduras. Cobertura: Proteína, Queso Crema, Aguacate, Cebollín y Ajonjolí Negro.",
       descriptionEn: "Base: Fried rice with butter, soy sauce and vegetables. Toppings: Protein, Cream Cheese, Avocado, Chives and Black Sesame.",
       items: [
@@ -104,7 +90,7 @@ export const menuData: MenuData = {
     {
       id: "bebidas",
       name: "Bebidas",
-      displayOrder: 7,
+      displayOrder: 6,
       items: [
         { id: "arizona-verde", name: "Arizona Te Verde", description: "460ml", descriptionEn: "460ml - Green Tea", price: 35 },
         { id: "arizona-kiwi", name: "Arizona Kiwi-Fresa", description: "460ml", descriptionEn: "460ml - Kiwi-Strawberry", price: 35 },
@@ -118,7 +104,7 @@ export const menuData: MenuData = {
     {
       id: "no-sushi",
       name: "No Sushi",
-      displayOrder: 8,
+      displayOrder: 7,
       items: [
         { id: "boneless-chips", name: "Boneless and Chips", description: "300 gr. de Boneless acompañado de 200 gr. de papas a la francesa. Sabores: BBQ, Buffalo, Chipotle, Cajún, Hot honey mustard, Breakfast, Mango habanero, Smirnoff de tamarindo, Lemon pepper", descriptionEn: "300g boneless wings with 200g french fries. Flavors: BBQ, Buffalo, Chipotle, Cajun, Hot honey mustard, Breakfast, Mango habanero, Tamarind Smirnoff, Lemon pepper", price: 155, tag: "shareable" },
       ],
@@ -126,7 +112,7 @@ export const menuData: MenuData = {
     {
       id: "postres",
       name: "Postres",
-      displayOrder: 9,
+      displayOrder: 8,
       items: [
         { id: "gyozas-nutella", name: "Gyozas Nutella", description: "Gyozas rellenas de Nutella", descriptionEn: "Nutella-filled gyozas", price: 95 },
       ],
@@ -134,7 +120,7 @@ export const menuData: MenuData = {
     {
       id: "extras",
       name: "Extras",
-      displayOrder: 10,
+      displayOrder: 9,
       items: [
         { id: "paquete-salsas", name: "Paquete de Salsas", description: "Soya, spicy y anguila", descriptionEn: "Soy, spicy and eel sauce", price: 15 },
         { id: "salsa-individual", name: "Salsa Individual", description: "Una salsa a elegir", descriptionEn: "Single sauce of your choice", price: 5 },
@@ -144,7 +130,7 @@ export const menuData: MenuData = {
     {
       id: "importados",
       name: "Importados",
-      displayOrder: 11,
+      displayOrder: 10,
       description: "Bebidas, snacks y ramyeon importados de Asia",
       descriptionEn: "Imported Asian drinks, snacks and ramyeon",
       items: [

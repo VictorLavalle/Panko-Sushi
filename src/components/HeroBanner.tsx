@@ -13,7 +13,7 @@ interface HeroBannerProps {
   addressUrl: string;
 }
 
-export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, address, addressUrl }: HeroBannerProps) {
+export function HeroBanner({ logoSrc, restaurantName, tagline, hours, phone, address, addressUrl }: Readonly<HeroBannerProps>) {
   const { t } = useI18n();
 
   return (

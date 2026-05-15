@@ -8,7 +8,7 @@ interface CategorySectionProps {
   category: Category;
 }
 
-export function CategorySection({ category }: CategorySectionProps) {
+export function CategorySection({ category }: Readonly<CategorySectionProps>) {
   const { locale, t } = useI18n();
   const desc = locale === "en" ? (category.descriptionEn ?? category.description) : category.description;
   const name = t(`category.${category.id}`) !== `category.${category.id}` ? t(`category.${category.id}`) : category.name;

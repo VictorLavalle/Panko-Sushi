@@ -8,7 +8,7 @@ interface ItemCardProps {
   item: MenuItem;
 }
 
-export function ItemCard({ item }: ItemCardProps) {
+export function ItemCard({ item }: Readonly<ItemCardProps>) {
   const { locale } = useI18n();
   const desc = locale === "en" ? (item.descriptionEn ?? item.description) : item.description;
 

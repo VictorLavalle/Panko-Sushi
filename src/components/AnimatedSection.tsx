@@ -6,6 +6,6 @@ interface AnimatedSectionProps {
   children: ReactNode;
 }
 
-export function AnimatedSection({ children }: AnimatedSectionProps) {
+export function AnimatedSection({ children }: Readonly<AnimatedSectionProps>) {
   return <div>{children}</div>;
 }

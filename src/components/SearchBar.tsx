@@ -9,7 +9,7 @@ interface SearchBarProps {
   isActive: boolean;
 }
 
-export function SearchBar({ value, onChange, resultCount, isActive }: SearchBarProps) {
+export function SearchBar({ value, onChange, resultCount, isActive }: Readonly<SearchBarProps>) {
   const { t } = useI18n();
 
   return (

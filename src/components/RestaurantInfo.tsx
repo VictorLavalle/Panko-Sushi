@@ -11,7 +11,7 @@ interface RestaurantInfoProps {
   hours: string;
 }
 
-export function RestaurantInfo({ phone, address, addressUrl, instagram, instagramUrl, hours }: RestaurantInfoProps) {
+export function RestaurantInfo({ phone, address, addressUrl, instagram, instagramUrl, hours }: Readonly<RestaurantInfoProps>) {
   const { t } = useI18n();
 
   return (

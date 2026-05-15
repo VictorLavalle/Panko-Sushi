@@ -6,7 +6,7 @@ interface FloatingWhatsAppProps {
   phone: string;
 }
 
-export function FloatingWhatsApp({ phone }: FloatingWhatsAppProps) {
+export function FloatingWhatsApp({ phone }: Readonly<FloatingWhatsAppProps>) {
   const { t } = useI18n();
 
   return (

@@ -9,7 +9,7 @@ interface BottomNavigationProps {
   onNavigate: (section: Section) => void;
 }
 
-export function BottomNavigation({ activeSection, onNavigate }: BottomNavigationProps) {
+export function BottomNavigation({ activeSection, onNavigate }: Readonly<BottomNavigationProps>) {
   const { t } = useI18n();
 
   const navItems: { id: Section; label: string; icon: string }[] = [

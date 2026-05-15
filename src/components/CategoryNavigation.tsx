@@ -11,7 +11,7 @@ interface CategoryNavigationProps {
   onCategorySelect: (categoryId: string) => void;
 }
 
-export function CategoryNavigation({ categories, activeCategory, onCategorySelect }: CategoryNavigationProps) {
+export function CategoryNavigation({ categories, activeCategory, onCategorySelect }: Readonly<CategoryNavigationProps>) {
   const { t } = useI18n();
   const containerRef = useRef<HTMLDivElement>(null);
   const pillRefs = useRef<Map<string, HTMLAnchorElement>>(new Map());

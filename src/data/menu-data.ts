@@ -1,0 +1,138 @@
+import { MenuData } from "./types";
+
+export const menuData: MenuData = {
+  restaurant: {
+    name: "Panko Sushi",
+    tagline: "Restaurante de sushi y algunas cositas más!",
+    phone: "9811695143",
+    address: "Calle 14a #18, Colonia Prado entre 36 y Montecristo",
+    addressUrl: "https://maps.app.goo.gl/2WpL5BYDBBb7LTzQ6",
+    instagram: "@pankosushi24",
+    instagramUrl: "https://instagram.com/pankosushi24",
+    hours: "Lunes a Sábado, 6:30 pm - 11:00 pm",
+    logoSrc: "/logo.webp",
+  },
+  categories: [
+    {
+      id: "entradas",
+      name: "Entradas",
+      displayOrder: 1,
+      items: [
+        { id: "kakiages", name: "Kakiages", description: "Fritura de verduras en tempura", price: 95 },
+        { id: "kushiages", name: "Kushiages", description: "Dedos de queso (4 pzas.)", price: 95 },
+        { id: "gyozas-pork", name: "Gyozas Pork", description: "Empanadillas Rellenas de Carne de Puerco (6 pzas.)", price: 95 },
+        { id: "dragon-balls", name: "Dragon Balls", description: "Bolas de Arroz Empanizadas con Relleno de Queso Crema y Proteína a elegir: Pollo, Arrachera o Camarón (4 pzas.)", price: 95 },
+        { id: "papas-deluxe", name: "Papas Deluxe", description: "Papas a la francesa bañadas en salsa de queso con tocino y cebollín", price: 100 },
+        { id: "papas-francesa", name: "Papas a la Francesa", price: 75 },
+        { id: "camarones-tempura", name: "Camarones en Tempura", price: 145 },
+      ],
+    },
+    {
+      id: "rollos",
+      name: "Rollos",
+      displayOrder: 2,
+      description: "P/D: Alga, Aguacate, Zanahoria, Queso Crema, más la proteína que se elija.",
+      items: [
+        { id: "rollo-veggie", name: "Veggie", price: 90 },
+        { id: "rollo-pollo", name: "Pollo", price: 115 },
+        { id: "rollo-arrachera", name: "Arrachera", price: 120 },
+        { id: "rollo-camaron", name: "Camarón Cocido", price: 125 },
+        { id: "rollo-mixto-dos", name: "Mixto de Dos Carnes", description: "A elegir entre Pollo, Arrachera y Camarón", price: 130 },
+        { id: "rollo-mixto-tres", name: "Mixto de Tres Carnes", description: "Contiene Pollo, Arrachera y Camarón", price: 140 },
+      ],
+    },
+    {
+      id: "panko",
+      name: "Panko",
+      displayOrder: 3,
+      description: "P/F: Empanizado con panko.",
+      items: [
+        { id: "panko-pollo", name: "Pollo", price: 115 },
+        { id: "panko-arrachera", name: "Arrachera", price: 120 },
+        { id: "panko-camaron", name: "Camarón Empanizado", price: 125 },
+        { id: "panko-mixto-dos", name: "Mixto Dos Carnes", price: 135 },
+        { id: "panko-mixto-tres", name: "Mixto Tres Carnes", price: 145 },
+      ],
+    },
+    {
+      id: "karui",
+      name: "Karui",
+      displayOrder: 4,
+      description: "P/F: Ajonjolí Negro.",
+      items: [
+        { id: "karui-veggie", name: "Veggie", price: 85 },
+        { id: "karui-pollo", name: "Pollo", price: 110 },
+        { id: "karui-arrachera", name: "Arrachera", price: 115 },
+        { id: "karui-camaron", name: "Camarón Cocido", price: 120 },
+        { id: "karui-mixto-dos", name: "Mixto Dos Carnes", price: 125 },
+        { id: "karui-mixto-tres", name: "Mixto Tres Carnes", price: 135 },
+      ],
+    },
+    {
+      id: "gohan",
+      name: "Gohan",
+      displayOrder: 5,
+      description: "Base: Arroz al Vapor. Cobertura: Proteína, Queso Crema, Aguacate, Cebollín, Tocino, Ajonjolí Negro y Spicy.",
+      items: [
+        { id: "gohan-pollo", name: "Pollo", price: 105 },
+        { id: "gohan-arrachera", name: "Arrachera", price: 115 },
+        { id: "gohan-camaron", name: "Camarón Empanizado", price: 125 },
+        { id: "gohan-mixto-dos", name: "Mixto Dos Carnes", price: 135 },
+        { id: "gohan-mixto-tres", name: "Mixto Tres Carnes", price: 145 },
+      ],
+    },
+    {
+      id: "yakimeshi",
+      name: "Yakimeshi",
+      displayOrder: 6,
+      description: "Base: Arroz Frito con Mantequilla, Salsa de Soya y Verduras. Cobertura: Proteína, Queso Crema, Aguacate, Cebollín y Ajonjolí Negro.",
+      items: [
+        { id: "yakimeshi-pollo", name: "Pollo", price: 115 },
+        { id: "yakimeshi-arrachera", name: "Arrachera", price: 125 },
+        { id: "yakimeshi-camaron", name: "Camarón Empanizado", price: 135 },
+        { id: "yakimeshi-mixto-dos", name: "Mixto Dos Carnes", price: 145 },
+        { id: "yakimeshi-mixto-tres", name: "Mixto Tres Carnes", price: 155 },
+      ],
+    },
+    {
+      id: "bebidas",
+      name: "Bebidas",
+      displayOrder: 7,
+      items: [
+        { id: "arizona-verde", name: "Arizona Te Verde", price: 35 },
+        { id: "arizona-kiwi", name: "Arizona Kiwi-Fresa", price: 35 },
+        { id: "arizona-sandia", name: "Arizona Sandía", price: 35 },
+        { id: "arizona-mango", name: "Arizona Mango", price: 30 },
+        { id: "reca-avia", name: "Reca y Avia", description: "Te negro, te con limón, te suave, jamaica, naranjada, limonada de fresa, horchata", price: 32 },
+        { id: "coca-cola", name: "Coca Cola Normal y S/A", price: 37 },
+        { id: "agua-natural", name: "Agua Natural", price: 15 },
+      ],
+    },
+    {
+      id: "no-sushi",
+      name: "No Sushi",
+      displayOrder: 8,
+      items: [
+        { id: "boneless-chips", name: "Boneless and Chips", description: "300 gr. de Boneless acompañado de 200 gr. de papas a la francesa. Sabores: BBQ, Buffalo, Chipotle, Cajún, Hot honey mustard, Breakfast, Mango habanero, Smirnoff de tamarindo, Lemon pepper", price: 155 },
+      ],
+    },
+    {
+      id: "postres",
+      name: "Postres",
+      displayOrder: 9,
+      items: [
+        { id: "gyozas-nutella", name: "Gyozas Nutella", price: 95 },
+      ],
+    },
+    {
+      id: "extras",
+      name: "Extras",
+      displayOrder: 10,
+      items: [
+        { id: "paquete-salsas", name: "Paquete de Salsas", price: 15 },
+        { id: "salsa-individual", name: "Salsa Individual", price: 5 },
+        { id: "chiles-toreados", name: "Chiles Toreados", price: 10 },
+      ],
+    },
+  ],
+};
